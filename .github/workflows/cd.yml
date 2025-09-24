@@ -25,3 +25,8 @@ jobs:
           context: . 
           push: true 
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/myapp:latest 
+
+      - name: Trigger Render deployment 
+        if: success() && github.ref == 'refs/heads/main' 
+        run: | 
+          curl -s -X POST "${{ secrets.RENDER_DEPLOY_HOOK }}"
