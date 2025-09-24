@@ -1,10 +1,152 @@
-<header>
-  <nav>
-    <a href="/">Trang chủ</a> |
-    <a href="/cart">Giỏ hàng</a> |
-    <a href="/checkout">Thanh toán</a> |
-    <a href="/admin">Admin</a>
-  </nav>
-</header>
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>E-Commerce Template</title>
+  <style>
+    :root{
+      --bg:#f6f8fb;
+      --card:#ffffff;
+      --accent:#5b6fff;
+      --accent-2:#7be3ff;
+      --muted:#6b7280;
+      --text:#0f172a;
+      --radius:12px;
+      --shadow: 0 8px 24px rgba(16,24,40,0.06);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,'Helvetica Neue',Arial;background:linear-gradient(180deg,var(--bg),#eef2fb);color:var(--text);-webkit-font-smoothing:antialiased}
 
+    /* layout container */
+    .container{max-width:1120px;margin:0 auto;padding:20px}
 
+    /* Header */
+    .site-header{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:white;position:sticky;top:0;z-index:40;box-shadow:0 8px 30px rgba(30,40,90,0.08)}
+    .site-header .container{display:flex;align-items:center;justify-content:space-between;padding:12px 20px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:44px;height:44px;border-radius:10px;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;font-weight:700}
+    .brand h1{margin:0;font-size:18px}
+
+    /* Nav */
+    nav.main-nav{display:flex;gap:22px;align-items:center}
+    nav.main-nav a{color:rgba(255,255,255,0.95);text-decoration:none;font-weight:600;padding:8px 10px;border-radius:8px;transition:background .16s,transform .12s}
+    nav.main-nav a:hover{background:rgba(255,255,255,0.08);transform:translateY(-2px)}
+
+    /* actions */
+    .header-actions{display:flex;align-items:center;gap:12px}
+    .icon-btn{background:transparent;border:0;color:white;cursor:pointer;font-weight:700;padding:8px;border-radius:10px}
+    .cart-badge{background:#fff;color:var(--accent);border-radius:999px;padding:4px 8px;font-weight:700;margin-left:6px}
+
+    /* Hero */
+    .hero{background:linear-gradient(180deg,rgba(255,255,255,0.9),white);padding:36px;border-radius:16px;box-shadow:var(--shadow);margin-top:20px;display:grid;grid-template-columns:1fr 380px;gap:28px;align-items:center}
+    .hero h1{margin:0 0 8px;font-size:28px}
+    .hero p{margin:0;color:var(--muted)}
+    .cta{display:flex;gap:12px;margin-top:16px}
+    .btn-primary{background:var(--accent);color:white;padding:12px 18px;border-radius:12px;border:0;font-weight:700;cursor:pointer;box-shadow:0 10px 30px rgba(91,111,255,0.18)}
+    .btn-ghost{background:transparent;border:1px solid rgba(15,23,42,0.06);padding:10px 16px;border-radius:10px;cursor:pointer}
+
+    .hero-visual{height:300px;border-radius:12px;background:linear-gradient(135deg,#eef6ff,#f9ffff);display:flex;align-items:center;justify-content:center;color:var(--muted);font-weight:700}
+
+    /* Products */
+    .section-title{display:flex;align-items:center;justify-content:space-between;margin:22px 0}
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px}
+    .product-card{background:var(--card);padding:14px;border-radius:12px;box-shadow:var(--shadow);transition:transform .18s ease,box-shadow .18s ease}
+    .product-card:hover{transform:translateY(-8px);box-shadow:0 30px 60px rgba(16,24,40,0.08)}
+    .product-card .thumb{height:140px;background:#f1f5f9;border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--muted);margin-bottom:12px}
+    .product-card h3{margin:0 0 6px;font-size:16px}
+    .product-card .meta{font-size:13px;color:var(--muted);margin:0 0 8px}
+    .product-card .price{font-weight:700;color:var(--accent)}
+
+    /* Footer */
+    .site-footer{text-align:center;margin-top:32px;padding:18px;font-size:14px;color:var(--muted)}
+
+    /* Responsive */
+    @media (max-width:920px){
+      .hero{grid-template-columns:1fr;}
+      nav.main-nav{display:none}
+      .header-actions .menu-toggle{display:inline-flex}
+      .hero-visual{height:220px}
+    }
+    @media (max-width:520px){
+      .container{padding:12px}
+      .brand h1{font-size:16px}
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <div class="brand">
+        <div class="logo">EC</div>
+        <h1>ShopEasy</h1>
+      </div>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="/">Trang chủ</a>
+        <a href="/cart">Giỏ hàng</a>
+        <a href="/checkout">Thanh toán</a>
+        <a href="/admin">Admin</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn" aria-label="Tìm kiếm">🔍</button>
+        <button class="icon-btn" aria-label="Yêu thích">♡</button>
+        <button class="icon-btn" aria-label="Giỏ hàng">🛒 <span class="cart-badge">2</span></button>
+        <button class="icon-btn menu-toggle" style="display:none">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <h1>Đón đầu xu hướng — Mua sắm thông minh</h1>
+        <p>Ưu đãi đến 50% cho các sản phẩm chọn lọc. Giao nhanh trong 24h &amp; đổi trả dễ dàng.</p>
+        <div class="cta">
+          <button class="btn-primary">Mua ngay</button>
+          <button class="btn-ghost">Khám phá</button>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div>
+          <div style="font-size:20px;font-weight:700;margin-bottom:8px">Khuyến mãi mùa này</div>
+          <div style="color:var(--muted)">Ưu đãi đến 50% cho các sản phẩm chọn lọc</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="products">
+      <div class="section-title">
+        <h2>Sản phẩm nổi bật</h2>
+        <div style="color:var(--muted);font-weight:600">Xem tất cả →</div>
+      </div>
+
+      <div class="grid">
+        <article class="product-card">
+          <div class="thumb">Hình</div>
+          <h3>Tai nghe không dây X1</h3>
+          <p class="meta">Bluetooth • Khử ồn</p>
+          <div class="price">₫1,199,000</div>
+        </article>
+
+        <article class="product-card">
+          <div class="thumb">Hình</div>
+          <h3>Đồng hồ thể thao Z2</h3>
+          <p class="meta">Chống nước • GPS</p>
+          <div class="price">₫2,499,000</div>
+        </article>
+
+        <article class="product-card">
+          <div class="thumb">Hình</div>
+          <h3>Loa Bluetooth M8</h3>
+          <p class="meta">Bass mạnh • Pin lâu</p>
+          <div class="price">₫899,000</div>
+        </article>
+
+      </div>
+    </section>
+  </main>
+</body>
+</html>

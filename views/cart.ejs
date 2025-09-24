@@ -1,58 +1,10 @@
-<!-- <!doctype html>
+<!doctype html>
 <html>
   <%- include('partials/head') %>
 <body>
   <%- include('partials/header') %>
 
   <h1>Giỏ hàng</h1>
-
-  <%- include('partials/footer') %>
-</body>
-</html> -->
-
-
-<!doctype html>
-<html>
-  <%- include('partials/head', { title: 'Giỏ hàng' }) %>
-<body>
-  <%- include('partials/header', { cart: cart }) %>
-
-  <main class="container">
-    <h1>Giỏ hàng</h1>
-    <% if (cart.length > 0) { %>
-      <table>
-        <thead>
-          <tr>
-            <th>Sản phẩm</th>
-            <th>Giá</th>
-            <th>Số lượng</th>
-            <th>Thành tiền</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          <% cart.forEach(item => { %>
-            <tr>
-              <td><%= item.title %></td>
-              <td><%= Number(item.price).toLocaleString() %></td>
-              <td><%= item.qty %></td>
-              <td><%= Number(item.price * item.qty).toLocaleString() %></td>
-              <td>
-                <form action="/cart/remove" method="post">
-                  <input type="hidden" name="id" value="<%= item.id %>" />
-                  <button type="submit">Xóa</button>
-                </form>
-              </td>
-            </tr>
-          <% }) %>
-        </tbody>
-      </table>
-      <p><strong>Tổng: <%= Number(total).toLocaleString() %> VND</strong></p>
-      <a href="/checkout"><button>Thanh toán</button></a>
-    <% } else { %>
-      <p>Giỏ hàng trống.</p>
-    <% } %>
-  </main>
 
   <%- include('partials/footer') %>
 </body>
