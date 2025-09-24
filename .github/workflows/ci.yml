@@ -19,4 +19,4 @@ build:
         run: npm install 
  
       - name: Run tests 
-        run: npm test || echo "    No tests yet" 
+        run: npm test || echo "    No tests yet"

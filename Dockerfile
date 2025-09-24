@@ -6,6 +6,3 @@ COPY . .
 EXPOSE 3000
 CMD ["npm", "start"]
 
-.dockerignore
-node_modules
-npm-debug.log
