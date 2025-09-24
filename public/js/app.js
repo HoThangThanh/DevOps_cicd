@@ -1,1 +1,1 @@
-// JS frontend sẽ viết ở đây
+console.log("Frontend script loaded");
